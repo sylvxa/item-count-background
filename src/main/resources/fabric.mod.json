@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "id": "item-count-background",
+  "version": "${version}",
+  "name": "Item Count Background",
+  "description": "Simple mod that adds a configurable background to item counts.",
+  "authors": [
+    {
+      "name": "sylvie <3",
+      "contact": {
+        "email": "sylvia@sylvie.lol",
+        "homepage": "https://sylvie.lol"
+      }
+    }
+  ],
+  "contact": {
+    "homepage": "https://modrinth.com/project/item-count-background",
+    "issues": "https://github.com/sylvxa/item-count-background/issues",
+    "sources": "https://github.com/sylvxa/item-count-background",
+    "discord": "https://discord.gg/5qzrB98sBA"
+  },
+  "license": "MIT",
+  "icon": "assets/item-count-background/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "lol.sylvie.icb.ItemCountBackground"
+    ],
+    "modmenu": [
+      "lol.sylvie.icb.config.ModMenuCompat"
+    ]
+  },
+  "mixins": [
+    "item-count-background.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "minecraft": "${minecraft_version}"
+  }
+}

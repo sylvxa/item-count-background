@@ -1,0 +1,8 @@
+{
+  "text.autoconfig.item-count-background.title": "Item Count Background",
+  "text.autoconfig.item-count-background.option.textShadow": "Text Shadow",
+  "text.autoconfig.item-count-background.option.color": "Background Color",
+  "text.autoconfig.item-count-background.option.padding": "Padding",
+  "text.autoconfig.item-count-background.option.xOffset": "Horizontal Offset",
+  "text.autoconfig.item-count-background.option.yOffset": "Vertical Offset"
+}
