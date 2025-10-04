@@ -27,7 +27,7 @@ public abstract class DrawContextMixin {
         return y + ItemCountBackground.CONFIG.yOffset;
     }
 
-    @Inject(method = "drawStackCount", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/DrawContext;drawText(Lnet/minecraft/client/font/TextRenderer;Ljava/lang/String;IIIZ)I"))
+    @Inject(method = "drawStackCount", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/DrawContext;drawText(Lnet/minecraft/client/font/TextRenderer;Ljava/lang/String;IIIZ)V"))
     private void icb$addTextBackground(TextRenderer textRenderer, ItemStack stack, int x, int y, String stackCountText, CallbackInfo ci, @Local(ordinal = 1) String actualText) {
         int textWidth = textRenderer.getWidth(actualText);
         // These magic numbers are from the original method
@@ -40,7 +40,7 @@ public abstract class DrawContextMixin {
         fill(textX - padding, textY - padding, textX + textWidth - shadow + padding, textY - 1 - shadow + textRenderer.fontHeight + padding, ItemCountBackground.CONFIG.color);
     }
 
-    @ModifyArg(method = "drawStackCount", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/DrawContext;drawText(Lnet/minecraft/client/font/TextRenderer;Ljava/lang/String;IIIZ)I"))
+    @ModifyArg(method = "drawStackCount", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/DrawContext;drawText(Lnet/minecraft/client/font/TextRenderer;Ljava/lang/String;IIIZ)V"))
     public boolean icb$modifyTextShadow(boolean shadow) {
         return ItemCountBackground.CONFIG.textShadow;
     }
