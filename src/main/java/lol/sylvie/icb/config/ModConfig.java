@@ -12,6 +12,9 @@ public class ModConfig implements ConfigData {
     @ConfigEntry.ColorPicker(allowAlpha = true)
     public int color = 0xaa000000;
 
+    @ConfigEntry.ColorPicker(allowAlpha = true)
+    public int textColor = -1;
+
     @ConfigEntry.BoundedDiscrete(min = 0, max = 32)
     public int padding = 1;
 

@@ -17,14 +17,19 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public abstract class GuiGraphicsExtractorMixin {
     @Shadow public abstract void fill(int x1, int y1, int x2, int y2, int color);
 
-    @ModifyVariable(method = "itemCount", at = @At("HEAD"), ordinal = 0, argsOnly = true)
+    @ModifyVariable(method = "itemCount", at = @At("HEAD"), argsOnly = true, name = "x")
     private int icb$offsetX(int x) {
         return x + ItemCountBackground.CONFIG.xOffset;
     }
 
-    @ModifyVariable(method = "itemCount", at = @At("HEAD"), ordinal = 1, argsOnly = true)
+    @ModifyVariable(method = "itemCount", at = @At("HEAD"), argsOnly = true, name = "y")
     private int icb$offsetY(int y) {
         return y + ItemCountBackground.CONFIG.yOffset;
+    }
+
+    @ModifyArg(method = "itemCount", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/GuiGraphicsExtractor;text(Lnet/minecraft/client/gui/Font;Ljava/lang/String;IIIZ)V"), index = 4)
+    private int icb$modifyTextColor(int color) {
+        return ItemCountBackground.CONFIG.textColor;
     }
 
     @Inject(method = "itemCount", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/GuiGraphicsExtractor;text(Lnet/minecraft/client/gui/Font;Ljava/lang/String;IIIZ)V"))
